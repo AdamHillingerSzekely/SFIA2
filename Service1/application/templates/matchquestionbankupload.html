@@ -1,0 +1,16 @@
+
+{% extends "layout.html" %}
+{% block body_content %}
+    <p1> Please click button to take test!</p1>
+        <!--<div class='form>
+                <form method='POST' action=''>
+                        {{ form.hidden_tag() }}
+                        <div class='form_group'>
+                                {{ form.submit }}
+                        </div>
+                </form>
+        </div>-->
+        <a href='{{url_for("user_match_test_create")}}'> Take Match Test</a>
+{% endblock %}
+
+

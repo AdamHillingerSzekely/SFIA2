@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body_content %}
+    <p1> Please take the your test!  </p1>
+        <div class='form'>
+            <form method='POST' action="{{ url_for('user_question', test_id=test_id, question_id=question_id)  }}" >
+                        {{ form.hidden_tag() }}
+                        <div class='form_group'>
+                            {{ form.question.label }}: {{ question }} 
+                            <br/>
+                                {{ form.question }}
+                                {% if form.question.errors %}
+                                        <div class='error'>
+						{% for error in form.question.errors %}
+							<span>No questions left</span>
+						{% endfor %}
+                                        </div>
+                                {% endif %}
+			</div>
+			<br>
+			<div class='form_group'>
+				{{ form.submit }}
+			</div>
+                </form>
+        </div>
+{% endblock %}
+
+
+

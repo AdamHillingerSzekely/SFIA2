@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<h1>Home page </h1>
+<p>Welcome to this web app!</p>     
+
+    {% for post in posts %}
+        <div>
+            <h3>{{ post.title }}</h3>
+            <span>by <i>{{ post.author.first_name }} {{ post.author.last_name }}</i></span>
+            <span>on the <i>{{ post.date_posted }}</i></span>
+            <p>{{ post.content }}</p>
+	    <p>{{ post.comment }}</p>
+        </div>
+	<form action="{{ url_for('delete_post', id=post.id) }}">
+        <button type="submit">Delete Post</button>
+	</form>
+	{% endfor %}
+{% endblock body_content %}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block body_content %}
+	<p1> Analysis of test performance  </p1>
+		<div class='form'>
+			<form method='POST' action=''>
+
+{% for result in results %}
+	<div>					
+                        <div class='form_group'>
+				<h3> {{ result.title }} </h3>
+				{{ result.question }}
+				{{ result.answer }}
+				{{ result.attempts }}
+	</div>
+	<br>
+{% endfor %} 		
+
+
+
+    <div class='form-group'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            {{ form.title.label }}
+            {{ form.title }}
+                {% if form.title.errors %}
+                        <div class="error">
+                                {% for error in form.title.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                {% endif %}
+            <br>
+            {{ form.content.label }}
+            {{ form.content }}
+                 {% if form.content.errors %}
+                        <div class="error">
+                                {% for error in form.content.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                {% endif %}
+            <br>
+
+	         
+            {{ form.comment.label }}
+            {{ form.comment }}
+                 {% if form.comment.errors %}
+                        <div class="error">
+                                {% for error in form.comment.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                {% endif %}
+		<br>
+
+            {{ form.submit }}
+        </form>
+    </div>
+{% endblock %}
+
+

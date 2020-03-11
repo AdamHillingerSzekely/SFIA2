@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+ service1:
+   image:
+   build: ./Service1
+   ports:
+   - target: 5000
+     published: 5000
+     protocol: tcp
+   environment:
+   - DATABASE_URI=mysql+pymysql://root:Hillinger1993@35.242.176.52/flaskapp2
+   - SECRET_KEY=jfdoifoidfdjfoijwdaspcvk0e9uwf8h8f
+ service2:
+   image:
+   build: ./Service2
+   ports:
+   - target: 5000
+   environment:
+   - DATABASE_URI=mysql+pymysql://root:Hillinger1993@35.242.176.52/flaskapp2
+ service3:
+   image:
+   build: ./Service3
+   ports:
+   - target: 5000
+   environment:
+   - DATABASE_URI=mysql+pymysql://root:Hillinger1993@35.242.176.52/flaskapp2
+ service4:
+   image:
+   build: ./Service4
+   ports:
+   - target: 5000
+   environment:
+   - DATABASE_URI=mysql+pymysql://root:Hillinger1993@35.242.176.52/flaskapp2
+ service5:
+   image:
+   build: ./Service5
+   ports:
+   - target: 5000
+
